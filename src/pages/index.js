@@ -13,7 +13,7 @@ export default function Home() {
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 
         <title>Tip Calculator App</title>
-        <link rel="shortcut icon" href="../images/fvicon-32x32.png" />
+        <link rel="icon" href="../images/fvicon-32x32.png" />
       </Head>
 
       <h1>
@@ -40,7 +40,7 @@ export default function Home() {
             <p>Select Tip %</p>
             <div className="selector-container">
               {Ratings.map((index) => (
-                <button key={index}>{`${index}%`}</button>
+                <button className="rating-button" key={index}>{`${index}%`}</button>
               ))}
               <input
                 type="text"
@@ -66,17 +66,15 @@ export default function Home() {
         <div className="price-container">
           <ul>
             <li>
-              <div className="price-container-1">
-                <p className="text-1">Tip Ammount</p>
-                <p className="text-2">/ Person</p>
+              <div className="price-container-1 float-left">
+                <p className="text-1">Tip Ammount <br/> <b className="text-2">/ Person</b></p>
               </div>
 
               <p className="result float-right">$0.00</p>
             </li>
             <li>
-              <div className="price-container-1">
-                <p className="text-1">Total</p>
-                <p className="text-2">/ Person</p>
+              <div className="price-container-1 float-left">
+                <p className="text-1">Total <br/> <b className="text-2">/ Person</b></p>
               </div>
 
               <p className="result float-right">$0.00</p>

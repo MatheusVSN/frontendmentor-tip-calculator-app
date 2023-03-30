@@ -72,6 +72,16 @@ h1 {
 
 .tip-container {
   margin-right: 20px;
+  max-width: 400px;
+}
+
+.price-container {
+  background-color: var(--Very-Dark-Grayish-Cyan);
+  height: 342px;
+  width: 400px;
+
+  display: grid;
+  place-content: center;
 }
 
 .tip-container > * {
@@ -111,8 +121,6 @@ h1 {
 
 .container-1 p {
   color: var(--Grayish-Cyan);
-  display: flex;
-  align-items: center;
 }
 
 .user-input p {
@@ -161,21 +169,23 @@ input[type=text]::placeholder {
 ul {
   list-style: none;
   display: grid;
+  place-content: center;
+  justify-items: center;
 
-  width: 100%;
+  position: relative;
+  bottom: 40px;
 }
 
-.price-container {
-  background-color: var(--Very-Dark-Grayish-Cyan);
-  height: 342px;
-  width: 434px;
-
-  display: grid;
-  place-content: center;
+ul li {
+  width: calc(100% + 100px);
 }
 
 .float-right {
   float: right;
+}
+
+.float-left {
+  float: left;
 }
 
 .price-container-1 {
@@ -192,19 +202,44 @@ ul {
   border-radius: 8px;
   border-style: none;
 
-  height: 40px;
+  height: 50px;
+  width: 320px;
+  
   background-color: var(--Strong-Cyan);
   font-size: var(--Font-Size);
   color: var(--Very-Dark-Grayish-Cyan);
 
   position: relative;
   top: 40px;
+
+  transition: background-color 100ms ease-out
+}
+
+.reset-button:hover {
+  background-color: var(--Light-Grayish-Cyan);
+  color: var(--Very-Dark-Grayish-Cyan);
+}
+
+.rating-button {
+  transition: background-color 100ms ease-out
+}
+
+.rating-button:hover:not(.rating-active) {
+  background-color: var(--Light-Grayish-Cyan);
+  color: var(--Very-Dark-Grayish-Cyan);
+}
+
+.rating-active {
+  background-color: var(--Strong-Cyan);
+  color: var(--Very-Dark-Grayish-Cyan);
 }
 
 .text-1 {
-  color: var(--White);
+  color: var(--White);  
+  font-size: 14px;
 }
 
 .text-2 {
   color: var(--Grayish-Cyan);
+  font-size: 12px;
 }

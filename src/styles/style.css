@@ -110,13 +110,21 @@ h1 {
   font-size: 20px;
 }
 
+
 .tip-input {
   background-color: var(--Very-Light-Grayish-Cyan);
   text-align: center;
+  outline: solid 0 var(--Light-Grayish-Cyan);
+  text-align: right;
 }
 
 .tip-input::placeholder {
   color: var(--Very-Dark-Grayish-Cyan);
+  text-align: center;
+}
+
+.tip-input:hover, .user-input:hover {
+  outline: solid 2px var(--Light-Grayish-Cyan);
 }
 
 .container-1 p {
@@ -125,6 +133,8 @@ h1 {
 
 .user-input p {
   font-size: var(--Font-Size);
+  position: relative;
+  left: 10px;
 }
 
 .user-input {
@@ -215,7 +225,11 @@ ul li {
   transition: background-color 100ms ease-out
 }
 
-.reset-button:hover {
+.not-active-reset {
+    background-color: var(--Dark-Grayish-Cyan);
+}
+
+.reset-button:hover:not(.not-active-reset) {
   background-color: var(--Light-Grayish-Cyan);
   color: var(--Very-Dark-Grayish-Cyan);
 }

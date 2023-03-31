@@ -2,12 +2,11 @@ import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 
-import IconPerson from "../images/icon-person.svg";
 import Favicon from "../images/favicon-32x32.png";
+import IconPerson from "../images/icon-person.svg";
 
 export default function Home() {
   const Ratings = [5, 10, 15, 25, 50];
-<<<<<<< HEAD
 
   const [rating, setRating] = React.useState(0);
   const [customRating, setCustomRating] = React.useState(0);
@@ -31,18 +30,15 @@ export default function Home() {
     }
     setRating(givenRating);
     setResetState(true);
-=======
   const [rating, setRating] = React.useState(0);
   const [customRating, setCustom] = React.useState(0);
 
   function onMouseButton1Click(givenRating) {
     setRating(givenRating);
->>>>>>> f28cd80b6b4ee1948dcf1a396ddead912b2e4e53
   }
 
   function inputChanged() {
     setRating(0);
-<<<<<<< HEAD
     setResetState(true);
   }
 
@@ -50,17 +46,12 @@ export default function Home() {
     let EmptyString = !event.target.value || event.target.value.length === 0;
     setCurrentBill(event.target.value);
     setResetState(true);
-=======
->>>>>>> f28cd80b6b4ee1948dcf1a396ddead912b2e4e53
   }
 
   function enterPressed(event) {
     if (event.key == "Enter") {
       setCustom(event.target.value);
-<<<<<<< HEAD
       setResetState(true);
-=======
->>>>>>> f28cd80b6b4ee1948dcf1a396ddead912b2e4e53
     }
   }
 
@@ -167,8 +158,4 @@ export default function Home() {
       </div>
     </>
   );
-}
-
-function GenerateButton() {
-  return;
 }

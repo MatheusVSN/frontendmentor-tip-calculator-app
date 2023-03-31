@@ -30,8 +30,6 @@ export default function Home() {
     }
     setRating(givenRating);
     setResetState(true);
-  const [rating, setRating] = React.useState(0);
-  const [customRating, setCustom] = React.useState(0);
 
   function onMouseButton1Click(givenRating) {
     setRating(givenRating);

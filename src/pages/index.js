@@ -30,6 +30,7 @@ export default function Home() {
     }
     setRating(givenRating);
     setResetState(true);
+  }
 
   function onMouseButton1Click(givenRating) {
     setRating(givenRating);
@@ -98,14 +99,14 @@ export default function Home() {
                   key={index}
                 >{`${index}%`}</button>
               ))}
-                <input
-                  type="text"
-                  className="tip-input"
-                  placeholder="Custom"
-                  onClick={inputChanged}
-                  onChange={inputChanged}
-                  onKeyDown={enterPressed}
-                ></input>
+              <input
+                type="text"
+                className="tip-input"
+                placeholder="Custom"
+                onClick={inputChanged}
+                onChange={inputChanged}
+                onKeyDown={enterPressed}
+              ></input>
             </div>
           </div>
 

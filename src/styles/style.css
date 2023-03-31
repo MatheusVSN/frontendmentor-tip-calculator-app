@@ -33,6 +33,10 @@ body {
   place-content: center;
 }
 
+main {
+  min-width: 100vh;
+}
+
 .main-container {
   display: inline-flex;
   align-items: center;
@@ -57,7 +61,7 @@ h1 {
   border-style: none;
 
   background-color: transparent;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .bill-input::-webkit-outer-spin-button,
@@ -72,7 +76,7 @@ h1 {
 
 .tip-container {
   margin-right: 20px;
-  max-width: 400px;
+  width: 400px;
 }
 
 .price-container {
@@ -104,7 +108,7 @@ h1 {
   border-style: none;
 
   background-color: var(--Very-Dark-Grayish-Cyan);
-  border-radius: 8px;
+  border-radius: 4px;
   color: var(--White);
   font-weight: var(--Font-Weight);
   font-size: 20px;
@@ -123,8 +127,12 @@ h1 {
   text-align: center;
 }
 
-.tip-input:hover, .user-input:hover {
+.tip-input:hover, .user-input:hover:not(.not-sucess-input) {
   outline: solid 2px var(--Light-Grayish-Cyan);
+}
+
+.not-sucess-input {
+  outline: solid 2px red;
 }
 
 .container-1 p {
@@ -138,7 +146,7 @@ h1 {
 }
 
 .user-input {
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: var(--Very-Light-Grayish-Cyan);
   display: flex;
   align-items: center;
@@ -209,7 +217,7 @@ ul li {
 
 .reset-button {
   outline: none;
-  border-radius: 8px;
+  border-radius: 4px;
   border-style: none;
 
   height: 50px;
@@ -256,4 +264,20 @@ ul li {
 .text-2 {
   color: var(--Grayish-Cyan);
   font-size: 12px;
+}
+
+
+.zero-error {
+  float: right;
+  color: red;
+}
+
+.inactive {
+  opacity: 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .main-container {
+    display: grid;
+  }
 }

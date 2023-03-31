@@ -11,16 +11,19 @@ export default function Home() {
   const [rating, setRating] = React.useState(0);
   const [customRating, setCustomRating] = React.useState(0);
   const [total, setTotal] = React.useState(0);
+  const [totalPerPerson, setTotalPerPerson] = React.useState(0);
   const [people, setPeople] = React.useState(0);
   const [resetState, setResetState] = React.useState(false);
   const [currentBill, setCurrentBill] = React.useState(0);
+  const [currentError, setCurrentError] = React.useState(false);
 
   function reset() {
     setRating(0);
     setCustomRating(0);
-    setPeople(0);
+    setTotal(0);
+    setTotalPerPerson(0);
     setResetState(false);
-    setCurrentBill(0);
+    setCurrentError(false);
   }
 
   function onMouseButton1Click(givenRating) {
@@ -29,27 +32,48 @@ export default function Home() {
       return;
     }
     setRating(givenRating);
-    setResetState(true);
   }
 
-  function onMouseButton1Click(givenRating) {
-    setRating(givenRating);
-  }
-
-  function inputChanged() {
+  function inputChanged(event) {
     setRating(0);
-    setResetState(true);
+    setCustomRating(event.target.value);
   }
 
   function onBillInputChange(event) {
     let EmptyString = !event.target.value || event.target.value.length === 0;
+    if (EmptyString == true) {
+      return;
+    }
     setCurrentBill(event.target.value);
-    setResetState(true);
   }
 
-  function enterPressed(event) {
+  function peopleChangeInput(event) {
+    let presumedNumber = Number(event.target.value);
+    setPeople(!isNaN(presumedNumber) ? presumedNumber : 0);
+    setCurrentError(false);
+  }
+
+  function calculateResult(event) {
     if (event.key == "Enter") {
-      setCustom(event.target.value);
+      if (people == 0) {
+        setCurrentError(true);
+        return;
+      }
+
+      let ActualRating =
+        rating > 0
+          ? rating
+          : Number(customRating) > 0
+          ? Number(customRating)
+          : null;
+
+      if (!ActualRating) return;
+
+      let TipAmmount = (currentBill * (ActualRating/100));
+      let TipPerPerson = (TipAmmount / people);
+
+      setTotal(TipAmmount);
+      setTotalPerPerson(TipPerPerson);
       setResetState(true);
     }
   }
@@ -82,6 +106,7 @@ export default function Home() {
                 id="bill-input"
                 className="bill-input"
                 onInput={onBillInputChange}
+                onKeyDown={calculateResult}
               ></input>
             </div>
           </div>
@@ -95,7 +120,6 @@ export default function Home() {
                     rating == index ? "rating-active" : ""
                   }`}
                   onClick={() => onMouseButton1Click(index)}
-                  x
                   key={index}
                 >{`${index}%`}</button>
               ))}
@@ -105,19 +129,32 @@ export default function Home() {
                 placeholder="Custom"
                 onClick={inputChanged}
                 onChange={inputChanged}
-                onKeyDown={enterPressed}
               ></input>
             </div>
           </div>
 
           <div className="container-1 no-margin-bottom">
-            <p>Number of People</p>
-            <div className="user-input">
+            <p>
+              Number of People{" "}
+              <b
+                className={`zero-error ${
+                  currentError == true ? `` : `inactive`
+                }`}
+              >
+                Can't be zero
+              </b>
+            </p>
+            <div
+              className={`user-input ${
+                currentError == true ? `not-sucess-input` : ``
+              }`}
+            >
               <Image src={IconPerson} alt="Person" />
               <input
                 type="number"
                 id="bill-input"
                 className="bill-input"
+                onChange={peopleChangeInput}
               ></input>
             </div>
           </div>
@@ -132,7 +169,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <p className="result float-right">$0.00</p>
+              <p className="result float-right">{`$${totalPerPerson.toFixed(2)}`}</p>
             </li>
             <li>
               <div className="price-container-1 float-left">
@@ -141,7 +178,9 @@ export default function Home() {
                 </p>
               </div>
 
-              <p className="result float-right">$0.00</p>
+              <p className="result float-right">{`$${total.toFixed(
+                2
+              )}`}</p>
             </li>
           </ul>
 

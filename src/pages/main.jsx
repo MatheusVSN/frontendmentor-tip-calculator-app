@@ -11,7 +11,6 @@ import TipInputComponent from "../components/tip-selector-input.jsx"
 export default function MainPage() {
     const Percentages = [5, 10, 15, 25, 50];
     const [rating, setRating] = useState(0);
-    const [canReset, setCanReset] = useState(false);
     const [people, setPeople] = useState(0);
     const [errorReason, setErrorReason] = useState(null);
 
@@ -28,7 +27,6 @@ export default function MainPage() {
 
         setTotal(Total);
         setTotalPerPerson(TotalPerPerson);
-        setCanReset(true);
     }
 
     function tipMouseButton1Click(percentage) {
@@ -67,7 +65,10 @@ export default function MainPage() {
     }
 
     function onReset() {
-
+        setPeople(0);
+        setTotalPerPerson(0);
+        setTotal(0);
+        setErrorReason(null);
     }
 
     return (
@@ -120,7 +121,7 @@ export default function MainPage() {
 
                     <div className="mb-20"></div>
 
-                    <ResetInputComponent />
+                    <ResetInputComponent onClick={onReset} />
                 </div>
             </div>
         </>

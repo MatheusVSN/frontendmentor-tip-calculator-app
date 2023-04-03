@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Overpass:wght@400;700&family=Roboto&family=Space+Mono:wght@700&family=Work+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Overpass:wght@400;700&family=Roboto&family=Space+Mono:wght@700&family=Work+Sans&display=swap");
 
 :root {
   /* Colors */
@@ -24,70 +24,82 @@
 }
 
 * {
-    font-family: Space Mono;
+  font-family: Space Mono;
 }
 
 body {
-    background-color: var(--Light-grayish-cyan);
+  background-color: var(--Light-grayish-cyan);
 }
 
 main {
-    min-height: 100vh;
-    display: grid;
-    place-content: center;
-    overflow-x: hidden;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  overflow-x: hidden;
 }
 
 h1 {
-    color: var(--Very-dark-cyan);
+  color: var(--Very-dark-cyan);
 }
 
 .main-container {
-    background-color: var(--White);
+  background-color: var(--White);
 }
 
 .result-container {
-    background-color: var(--Very-dark-cyan);
+  background-color: var(--Very-dark-cyan);
 }
 
 .input-1-color {
-    background-color: var(--Very-light-grayish-cyan);
-    color: var(--Very-dark-cyan);
+  background-color: var(--Very-light-grayish-cyan);
+  color: var(--Very-dark-cyan);
 }
 
 .input-2-color {
-    background-color: var(--Very-dark-cyan);
-    color: var(--White);
+  background-color: var(--Very-dark-cyan);
+  color: var(--White);
 }
 
 .input-3-color {
-    background-color: var(--Dark-grayish-cyan);
-    color: var(--Very-dark-cyan);
+  background-color: var(--Dark-grayish-cyan);
+  color: var(--Very-dark-cyan);
 }
 
 .price {
-    color: var(--Strong-cyan);
+  color: var(--Strong-cyan);
 }
 
 .text-style-1 {
-    color: var(--Dark-grayish-cyan);
+  color: var(--Dark-grayish-cyan);
 }
 
 .text-style-2 {
-    color: var(--Dark-grayish-cyan);
+  color: var(--Dark-grayish-cyan);
 }
 
 .hover-effect-1 {
-    transition: background-color, color 250ms ease;
+  transition: background-color, color 250ms ease;
 }
 
 .hover-effect-1:hover {
-    cursor: pointer;
-    background-color: var(--Strong-cyan);
-    color: var(--Very-dark-cyan);
+  cursor: pointer;
+  background-color: var(--Strong-cyan);
+  color: var(--Very-dark-cyan);
 }
 
 .active-effect-1 {
+  background-color: var(--Strong-cyan);
+  color: var(--Very-dark-cyan);
+}
+
+.reset-button {
+    transition: background-color 250ms ease-out
+}
+
+.reset-button:hover {
     background-color: var(--Strong-cyan);
-    color: var(--Very-dark-cyan);
+}
+
+.inactive-reset:hover {
+    cursor: inherit;
 }
